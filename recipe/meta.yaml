@@ -1,13 +1,13 @@
 {% set name = "mlx-image" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
-  sha256: 7971cdbadfbc42288bd0a813c51a506341688f4e8cc590051558ac58b12c47bc
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
+  sha256: fd64a9017801a6ae620c05f4f867987bb6b59a80ff88d0844af4d6b2cad8df22
 
 build:
   noarch: python
