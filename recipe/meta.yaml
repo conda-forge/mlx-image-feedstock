@@ -21,17 +21,17 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - mlx
+    - mlx 0.21.0
     - numpy 1.26.2
     - tqdm
-    - safetensors
-    - opencv
-    - pillow
-    - pandas
+    - safetensors 0.4.2
+    - opencv-python 4.9.0.80
+    - pillow 10.2.0
+    - pandas 2.2.1
     - matplotlib-base
-    - albumentations
-    - types-pyyaml >=6.0.12,<7.0.0
-    - huggingface_hub
+    - albumentations 1.4.1
+    - types-pyyaml >=6.0.12.12,<7
+    - huggingface_hub 0.21.4
 
 test:
   imports:
