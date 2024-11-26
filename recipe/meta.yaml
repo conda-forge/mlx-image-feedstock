@@ -1,13 +1,13 @@
 {% set name = "mlx-image" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
-  sha256: 7971cdbadfbc42288bd0a813c51a506341688f4e8cc590051558ac58b12c47bc
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
+  sha256: fd64a9017801a6ae620c05f4f867987bb6b59a80ff88d0844af4d6b2cad8df22
 
 build:
   noarch: python
@@ -16,22 +16,22 @@ build:
 
 requirements:
   host:
-    - python >=3.10,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.10.0,<4.0.0
-    - mlx
+    - python >={{ python_min }}
+    - mlx 0.21.0
     - numpy 1.26.2
     - tqdm
-    - safetensors
-    - opencv
-    - pillow
-    - pandas
+    - safetensors 0.4.2
+    - opencv-python 4.9.0.80
+    - pillow 10.2.0
+    - pandas 2.2.1
     - matplotlib-base
-    - albumentations
-    - types-pyyaml >=6.0.12,<7.0.0
-    - huggingface_hub
+    - albumentations 1.4.1
+    - types-pyyaml >=6.0.12.12,<7
+    - huggingface_hub 0.21.4
 
 test:
   imports:
@@ -40,6 +40,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Apple MLX image models library
