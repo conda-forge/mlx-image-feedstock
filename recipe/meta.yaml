@@ -1,3 +1,4 @@
+{% set python_min = '3.10.0' %}
 {% set name = "mlx-image" %}
 {% set version = "0.1.7" %}
 
@@ -6,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
   sha256: 7971cdbadfbc42288bd0a813c51a506341688f4e8cc590051558ac58b12c47bc
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.10,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.10.0,<4.0.0
+    - python >={{ python_min }},<4.0.0
     - mlx
     - numpy 1.26.2
     - tqdm
@@ -40,6 +41,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Apple MLX image models library
