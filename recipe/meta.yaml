@@ -1,6 +1,6 @@
-{% set python_min = '3.10.0' %}
+{% set python_min = "3.10.0" %}
 {% set name = "mlx-image" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.9" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mlx_image-{{ version }}.tar.gz
-  sha256: 7971cdbadfbc42288bd0a813c51a506341688f4e8cc590051558ac58b12c47bc
+  sha256: 31526380f93892b594bd2120680211ee5ccac8df6614d5999e8ca716afe17c26
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
