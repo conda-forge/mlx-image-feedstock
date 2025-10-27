@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mlx-image
-  version: 0.1.7
+  version: 0.1.9
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mlx_image-${{ version }}.tar.gz
-  sha256: 7971cdbadfbc42288bd0a813c51a506341688f4e8cc590051558ac58b12c47bc
+  sha256: 31526380f93892b594bd2120680211ee5ccac8df6614d5999e8ca716afe17c26
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -24,18 +24,17 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }}
-    - mlx
+    - mlx 0.24.2.*
     - numpy 1.26.2.*
     - tqdm
-    - safetensors
-    - opencv
-    - pillow
-    - pandas
+    - safetensors 0.4.2.*
+    - opencv 4.9.0.80.*
+    - pillow 10.4.0.*
+    - pandas 2.2.1.*
     - matplotlib-base
-    - albumentations
+    - albumentations 1.4.1.*
     - types-pyyaml >=6.0.12,<7.0.0
-    - huggingface_hub
-
+    - huggingface_hub 0.24.0.*
 tests:
   - python:
       python_version: ${{ python_min }}.*
